@@ -1,0 +1,14 @@
+<div class="container page me-5 pe-5">
+    <div class="d-flex" *ngIf="totalPage<=5">
+        <div class="page-btns m-1" *ngFor="let num of getNumberArray()">
+            <a><button (click)="onPageNoClick(num)">{{num}}</button></a>
+        </div>
+    </div>
+    <div class="d-flex page-btns align-items-center" *ngIf="totalPage>5">
+        <a [ngClass]="{'selected-btn':selectedPageNo===1}" (click)="onPageNoClick2(1)" >1</a>
+        <div class="m-1" *ngFor="let num of pageNoArr">
+            <a [ngClass]="{'selected-btn':selectedPageNo===num}" (click)="onPageNoClick2(num)">{{num}}</a>
+        </div>
+        <a [ngClass]="{'selected-btn':selectedPageNo===totalPage}" (click)="onPageNoClick2(totalPage)">{{totalPage}}</a>
+    </div>
+</div>
